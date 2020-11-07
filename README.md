@@ -3,10 +3,15 @@
         <img style="background-color: #333; padding: 25px; border-radius: 5px;" height="144" width="144" src="https://fox-website.netlify.app/assets/favicons/android-chrome-144x144.png">
     </a>
 </div>
-<div align="center" style="margin: 50px 0;">
-    <span style="font-size: 2em">FOX Website</span><br/>
-    <span style="font-size: 1.5em">Simple Node.js project for develop<br/>your static website</span>
+<div align="center">
+    <h1>
+        FOX Website<br/>
+        Simple Node.js project for develop<br/>
+        your static website
+    </h1>
 </div>
+<br/>
+<br/>
 
 __FOX Website__ est un framework simple d'utilisation vous permettant de créer des sites WEB statiques rapidement.
 
