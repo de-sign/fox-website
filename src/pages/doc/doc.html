@@ -1,0 +1,8 @@
+<!-- Extension du Layout --> 
+{% extends 'templates/' + FW.template.name + '.njk' %}
+
+{% block main_content %}
+    {% for fw_section in FW.content.sections %}
+        {% include "doc/include/" + fw_section %}
+    {% endfor %}
+{% endblock %}

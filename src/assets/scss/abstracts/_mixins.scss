@@ -1,0 +1,8 @@
+@mixin hook-button(){
+    border-radius: 50px;
+}
+
+@mixin hook-card-default(){
+    border: $base-pre-border-width solid $base-pre-border;
+    border-radius: $base-pre-border-radius;
+}

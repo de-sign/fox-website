@@ -1,0 +1,10 @@
+{% block main %}
+    <main class="fw-main uk-width-expand">
+        {% block main_content %}{% endblock %}
+        {% block main_footer %}
+            <div class="uk-hidden@m">
+                //=include _footer.njk
+            </div>
+        {% endblock %}
+    </main>
+{% endblock %}

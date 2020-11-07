@@ -1,0 +1,15 @@
+<!doctype {{ FW.doctype }}>
+<html lang="{{ FW.lang }}">
+	<head>
+		//=include ../_head.njk
+	</head>
+	<body class="uk-position-relative uk-background-cover {{ FW.template.mode }}" 
+		{% if FW.template.background %}
+			data-src="{{ FW.template.background }}" uk-img
+		{% endif %}
+	>
+		//=include _header.njk
+		//=include _main.njk
+		//=include _footer.njk
+	</body>
+</html>

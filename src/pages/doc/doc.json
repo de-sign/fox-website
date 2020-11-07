@@ -1,0 +1,49 @@
+{
+    "url": {
+        "path": "doc.html"
+    },
+	"meta": {
+		"title": "FOX Website - Documentation",
+		"description": "Documentation for FOX Website - Simple Node.js project for develop your static website"
+    },
+
+    "template": {
+        "name":  "documentation",
+        "menu": {
+            "mode": "uk-light",
+            "background": "assets/images/backgrounds/leaf-dark.jpg",
+            "class": "uk-nav-default uk-margin-medium",
+            "scrollspy": "closest: li; scroll: true",
+            "position": "rleftight"
+        }
+    },
+
+    "content": {
+        "menu": {
+            "icon": "assets/images/icons/foxwebsite.svg",
+            "title": "FOX Website",
+
+            "buttons": [
+                {
+                    "label": "<span uk-icon=\"icon: github\"></span> <span class=\"uk-text-middle\">Github</span>",
+                    "icon": "icon: github; ratio: 1.5;",
+                    "attributes": {
+                        "href": "https://github.com/de-sign/uikit-starter",
+                        "class": "uk-button uk-button-default uk-margin-small-left uk-width-2-3 uk-width-auto@s",
+                        "target": "_blank",
+                        "rel": "noreferrer noopener"
+                    }
+                }
+            ]
+        },
+
+        "sections": [
+            "intro.html",
+            "nodejs.html",
+            "gulp.html",
+            "njk.html",
+            "uikit.html",
+            "js.html"
+        ]
+    }
+}

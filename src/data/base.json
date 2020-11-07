@@ -1,0 +1,88 @@
+{
+    "doctype": "html",
+    "lang": "fr",
+    "charset": "UTF8",
+    "url": {
+        "host": "https://fox-website.netlify.app/",
+        "path": ""
+    },
+	"meta": {
+		"title": "FOX Website",
+		"description": "Simple Node.js project for develop your static website",
+		"viewport": "width=device-width, initial-scale=1.0"
+    },
+    "stylesheet": ["main"],
+    "script": [
+        "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"
+    ],
+
+    "menu": [
+        {
+            "label": "Présentation",
+            "href": "doc.html#fw-page--intro",
+            "sub": [
+                {
+                    "label": "Introduction",
+                    "href": "doc.html#fw-page--intro"
+                },
+                {
+                    "label": "Node.js",
+                    "href": "doc.html#fw-page--nodejs",
+                    "sub": [
+                        {
+                            "label": "Installation",
+                            "href": "doc.html#fw-page--install"
+                        },
+                        {
+                            "label": "Structure",
+                            "href": "doc.html#fw-page--struct"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Documentation",
+            "href": "doc.html#fw-page--gulp",
+            "sub": [
+                {
+                    "label": "Gulp",
+                    "href": "doc.html#fw-page--gulp",
+                    "sub": [
+                        {
+                            "label": "Fonctionnement",
+                            "href": "doc.html#fw-page--work"
+                        },
+                        {
+                            "label": "Lignes de commande",
+                            "href": "doc.html#fw-page--cmd"
+                        }
+                    ]
+                },
+                {
+                    "label": "Nunjucks",
+                    "href": "doc.html#fw-page--njk",
+                    "sub": [
+                        {
+                            "label": "Templates",
+                            "href": "doc.html#fw-page--tpl"
+                        },
+                        {
+                            "label": "Pages",
+                            "href": "doc.html#fw-page--page"
+                        }
+                    ]
+                },
+                {
+                    "label": "UIKit",
+                    "href": "doc.html#fw-page--uikit"
+                },
+                {
+                    "label": "JavaScript",
+                    "href": "doc.html#fw-page--js"
+                }
+            ]
+        }
+    ]
+}

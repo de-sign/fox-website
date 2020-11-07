@@ -1,0 +1,17 @@
+.fw-body.fw-menu-right {
+    &,
+    .fw-offcanvas-navbar > .uk-iconnav {
+        flex-direction: row-reverse;
+    }
+}
+
+.fw-offcanvas-logo {
+    margin: 2.5px;
+}
+
+@media (max-width: $breakpoint-medium) {
+    .fw-body {
+        flex-direction: column;
+
+    }
+}

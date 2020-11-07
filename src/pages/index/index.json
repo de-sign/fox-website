@@ -1,0 +1,37 @@
+{
+    "url": {
+        "path": "index.html"
+    },
+
+    "template": {
+        "name": "background",
+        "navbar": null,
+        "mode": "uk-light",
+        "background": "assets/images/backgrounds/leaf-dark.jpg"
+    },
+
+    "content": {
+        "icon": "assets/images/icons/foxwebsite.svg",
+        "title": "FOX Website",
+        "subtitle": "Simple Node.js project for develop<br/>your static website",
+        "description": null,
+        "buttons": [
+            {
+                "label": "Get started",
+                "attributes": {
+                    "href": "doc.html",
+                    "class": "uk-button uk-button-primary uk-margin-small-bottom uk-margin-small-left uk-margin-small-right uk-width-2-3 uk-width-auto@s"
+                }
+            },
+            {
+                "label": "<span uk-icon=\"icon: github\"></span> <span class=\"uk-text-middle\">Github</span>",
+                "attributes": {
+                    "href": "https://github.com/de-sign/fox-website",
+                    "class": "uk-button uk-button-default uk-margin-small-bottom uk-margin-small-left uk-margin-small-right uk-width-2-3 uk-width-auto@s",
+                    "target": "_blank",
+                    "rel": "noreferrer noopener"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,47 @@
+{% block menu %}
+    <div class="fw-menu-placeholder uk-visible@m uk-width-medium"></div>
+
+    <section class="fw-menu uk-visible@m uk-position-fixed uk-position-{{ FW.template.menu.position }} uk-width-medium uk-flex uk-flex-column {{ FW.template.menu.mode }}"
+        {% if FW.template.menu.background %}
+			data-src="{{ FW.template.menu.background }}" uk-img
+		{% endif %}
+    >
+        
+        <header class="uk-text-center uk-padding">
+
+            {% block menu_icon %}
+                <a href="index.html">
+                    <img class="uk-text-emphasis" data-src="{{ FW.content.menu.icon }}" width="100" height="100" alt="logo" uk-svg>
+                    <h2 class="uk-margin-small-top">{{ FW.content.menu.title }}</h2>
+                </a>
+            {% endblock %}
+
+            {% block menu_buttons %}
+                {% if FW.content.menu.buttons %}
+                    {% for fw_button in FW.content.menu.buttons %}
+                        <a
+                            {% if fw_button.attributes %}
+                                {% for a_name, a_value in fw_button.attributes %}
+                                    {{ a_name }}="{{ a_value }}"
+                                {% endfor %}
+                            {% endif %}
+                        >
+                            {{ fw_button.label | safe }}
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+            
+        </header>
+
+        {% block menu_nav %}
+            {% set scrollspy_offset = 0 %}
+            //=include _nav.njk
+        {% endblock %}
+
+        {% block menu_footer %}
+            //=include _footer.njk
+        {% endblock %}
+        
+    </section>
+{% endblock %}

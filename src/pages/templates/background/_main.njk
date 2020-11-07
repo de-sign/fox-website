@@ -1,0 +1,57 @@
+{% block main %}
+    <main class="fw-main uk-section uk-padding-remove" >
+
+        {% block main_content %}
+            <section class="uk-container uk-padding uk-flex uk-flex-center uk-height-viewport uk-position-relative">
+                <div class="uk-margin-auto-vertical uk-text-center">
+
+                    {% block main_header %}
+                        <header uk-scrollspy="cls: uk-animation-slide-bottom-medium" class="uk-margin-medium">
+                            {% block main_icon %}
+                                {% if FW.content.icon %}
+                                    <img class="uk-text-emphasis" data-src="{{ FW.content.icon }}" width="200" height="200" alt="logo" uk-svg>
+                                {% endif %}
+                            {% endblock %}
+                            {% block main_title %}
+                                <h1 class="uk-heading-medium uk-margin-medium">{{ FW.content.title | safe }}</h1>
+                            {% endblock %}
+                            {% block main_subtitle %}
+                                {% if FW.content.subtitle %}
+                                    <h2 class="uk-h4">{{ FW.content.subtitle | safe }}</h2>
+                                {% endif %}
+                            {% endblock %}
+                        </header>
+                    {% endblock %}
+
+                    {% block main_text %}
+                        {% if FW.content.description %}
+                            <div uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 250" class="uk-margin-medium">
+                                <p>{{ FW.content.description | safe }}</p>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block main_buttons %}
+                        {% if FW.content.buttons %}
+                            <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium">
+                                {% for a_button in FW.content.buttons %}
+                                    <a
+                                        {% if a_button.attributes %}
+                                            {% for s_name, s_value in a_button.attributes %}
+                                                {{ s_name }}="{{ s_value }}"
+                                            {% endfor %}
+                                        {% endif %}
+                                    >
+                                        {{ a_button.label | safe }}
+                                    </a>
+                                {% endfor %}
+                            </footer>
+                        {% endif %}
+                    {% endblock %}
+
+                </div>
+            </section>
+        {% endblock %}
+
+    </main>
+{% endblock %}

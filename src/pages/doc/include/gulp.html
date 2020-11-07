@@ -1,0 +1,66 @@
+<section id="fw-page--gulp" class="fw-page uk-section uk-section-muted uk-section-large">
+    <div class="uk-container">
+
+        <div class="uk-text-center uk-margin-large">
+            <img data-src="assets/images/icons/gulp.png" width="120" uk-img>
+            <h1 class="uk-hidden">Gulp</h1>
+            <h3>
+                A toolkit to automate<br/>
+                & enhance your workflow
+            </h3>
+        </div>
+
+        <div class="uk-margin-large">
+            <p>
+                <b>FOX Website</b> utilise <b>Gulp</b> afin d'automatiser les tâches de génération de votre site statique final :
+                <a href="https://gulpjs.com" target="_blank"rel="noreferrer noopener">https://gulpjs.com</a>
+            </p>
+            <p>
+                Afin de facilité le développement, <b>FOX Website</b> couple <b>Gulp</b> avec le module <mark>browser-sync</mark> vous permettant de visualiser en temps réel vos modifications : 
+                <a href="https://browsersync.io" target="_blank"rel="noreferrer noopener">https://browsersync.io</a>
+            </p>
+        </div>
+
+        <div id="fw-page--work" class="uk-margin-large">
+            <h3>Fonctionnement</h3>
+            <p>
+                Le fichier <mark>gulpfile.js</mark> inclus 3 fichiers : un fichier de configuration <mark>gulp/config.js</mark>, un fichier regroupant les tâches <mark>gulp/_builds.js</mark> et un fichier dédié aux services <mark>gulp/_serves.js</mark>.
+            </p>
+            <p>
+                Vous pouvez utiliser n'importe quel module <mark>gulp-*</mark> pour générer une nouvelle tâche, il faut pour cela ajouter cette dernière dans le fichier <mark>gulp/_builds.js</mark> et modifier le fichier de configuration <mark>gulp/config.js</mark> en conséquence&nbsp;!
+            </p>
+        </div>
+
+        <div id="fw-page--cmd" class="uk-margin-large">
+            <h3>Lignes de commandes</h3>
+            <p>
+                <b>FOX Website</b> mets à votre disposition plusieurs lignes de commandes :
+            </p>
+<pre class="uk-margin-medium uk-background-default"><code>// Permet de visualiser votre site en temps réel
+gulp
+
+// -- Pour Windows
+npm run fw-win-test
+npm run fw-win-prod
+
+// -- Pour UNIX
+npm run fw-unix-test
+npm run fw-unix-prod
+
+// Permet de générer votre site
+// -- Pour Windows
+npm run fw-win-build-dev
+npm run fw-win-build-test
+npm run fw-win-build-prod
+
+// -- Pour UNIX
+npm run fw-unix-build-dev
+npm run fw-unix-build-test
+npm run fw-unix-build-prod</code></pre>
+            <p>
+                Libre à vous d'en ajouter dans le fichier <mark>packages.json</mark>&nbsp;!
+            </p>
+        </div>
+
+    </div>
+</section>

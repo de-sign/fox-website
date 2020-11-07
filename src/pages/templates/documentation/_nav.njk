@@ -1,0 +1,32 @@
+<nav class="uk-width-expand uk-padding">
+    {% if FW.menu %}
+        <ul class="uk-nav {{ FW.template.menu.class }}"
+            {% if FW.template.menu.scrollspy %}
+                uk-scrollspy-nav="offset: {{ scrollspy_offset }}; {{ FW.template.menu.scrollspy }}"
+            {% endif %}
+        >
+            {% for fw_menu in FW.menu %}
+                <li class="uk-nav-header">{{ fw_menu.label | safe }}</li>
+                <li class="uk-nav-divider"></li>
+                {% for fw_sub in fw_menu.sub %}
+                    <li
+                        {% if fw_sub.sub %}
+                            class="uk-parent"
+                        {% endif %}
+                    >
+                        <a href="{{ fw_sub.href | replace( FW.url.path, "" ) }}">{{ fw_sub.label | safe }}</a>
+                        {% if fw_sub.sub %}
+                            <ul class="uk-nav-sub">
+                                {% for fw_ssub in fw_sub.sub %}
+                                    <li>
+                                        <a href="{{ fw_ssub.href | replace( FW.url.path, "" ) }}">{{ fw_ssub.label | safe }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</nav>
