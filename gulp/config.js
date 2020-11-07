@@ -140,8 +140,8 @@ Object.assign(exports, {
             })
         ],
         favicons: {
-            background: '#FFFFFF',
-            theme_color: '#000',
+            background: '#333333',
+            theme_color: '#333333',
             display: 'standalone',
             orientation: 'portrait',
             version: 1.0,
