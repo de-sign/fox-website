@@ -34,20 +34,26 @@ module.exports = function(config){
                     aPath = config.paths.dest.favicon.split('/');
                     aPath.shift();
 
-                return Object.assign({}, config.plugins.favicons, {
+                return Object.assign({}, FW.favicon, config.plugins.favicons, {
                     appName: FW.meta.title,
                     appDescription: FW.meta.description,
                     url: FW.url.host,
                     path: aPath.join('/'),
-                    html: path.relative(config.paths.dest.favicon, config.paths.src.templates) + '/' + config.files.dest.favicon
-                });
+                    html: config.files.dest.favicon
+                } );
             };
 
-            return function favicon() {
-                return gulp.src(config.paths.src.favicon + '/' + config.files.src.favicon)
-                    .pipe(favicons(_getData()))
-                    .pipe(gulp.dest(config.paths.dest.favicon));
-            };
+            return gulp.series(
+                function favicon__generate() {
+                    return gulp.src(config.paths.src.favicon + '/' + config.files.src.favicon)
+                        .pipe(favicons(_getData()))
+                        .pipe(gulp.dest(config.paths.dest.favicon));
+                },
+                function favicon__move_html() {
+                    return gulp.src(config.paths.dest.favicon + '/' + config.files.dest.favicon)
+                        .pipe(gulp.dest(config.paths.src.templates));
+                }
+            );
         })(),
         
         njk: () => {
