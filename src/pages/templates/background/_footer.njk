@@ -3,9 +3,7 @@
         <footer class="fw-footer uk-section uk-section-xsmall uk-position-bottom" uk-scrollspy="cls: uk-animation-fade; delay: 1000" >
             <div class="uk-container uk-text-center">
                 <div class="uk-grid-small uk-child-width-1-1 uk-child-width-auto@s uk-flex-center" uk-grid>
-                    {% for fw_credits in FW.credits %}
-                        <div>{{ FW.macro.component(fw_credits) }}</div>
-                    {% endfor %}
+                    {{ FW.macro.wrapper(FW.credits) }}
                 </div>
             </div>
         </footer>

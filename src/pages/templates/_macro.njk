@@ -3,6 +3,11 @@
     'fw-element': {
         tag: 'div'
     },
+    'fw-wrapper': {
+        type: 'fw-element',
+        tag: 'div'
+    },
+
     'uk-icon': {
         tag: 'span',
         attributes: {
@@ -35,23 +40,6 @@
     }
 } %}
 
-{% macro component(a_configs) %}
-    {% for o_config in a_configs | fw_toArray %}
-        {% set o_typeConfig = o_defaultConfig[o_config.type] %}
-        {% if o_typeConfig %}
-            {{ HTMLElement(
-                o_typeConfig | fw_assign(o_config) | fw_assign({
-                    attributes: {
-                        class: ( o_config.attributes.class + ' ' + o_typeConfig.attributes.class ) | replace('undefined', '') | trim
-                    }
-                })
-            ) }}
-        {% else %}
-            {{ o_config | safe }}
-        {% endif %}
-    {% endfor %}
-{% endmacro %}
-
 {% macro HTMLElement(o_config) %}
     <{{ o_config.tag }}
         {{ printAttributes(o_config.attributes) }}
@@ -72,4 +60,34 @@
             {{ s_name }}="{{ s_value }}"
         {% endfor %}
     {% endif %}
+{% endmacro %}
+
+{% macro wrapper(a_components, u_wrapper) %}
+    {% set o_wrapper = u_wrapper if u_wrapper.type else o_defaultConfig['fw-wrapper'] | fw_assign( {
+        tag: u_wrapper | default(o_defaultConfig['fw-wrapper'].tag)
+    } ) %}
+    {% for o_component in a_components | fw_toArray %}
+        {{ component(o_wrapper | fw_assign({ content: o_component })) }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro component(a_configs) %}
+    {% for o_config in a_configs | fw_toArray %}
+        {% set o_typeConfig = o_defaultConfig[o_config.type] %}
+        {% if o_typeConfig %}
+            {% if o_config.type == 'fw-wrapper' %}
+                {{ wrapper(o_config.content, (o_typeConfig | fw_assign(o_config.wrapper)) if o_config.wrapper.type else o_config.wrapper ) }}
+            {% else %}
+                {{ HTMLElement(
+                    o_typeConfig | fw_assign(o_config) | fw_assign({
+                        attributes: {
+                            class: ( o_config.attributes.class + ' ' + o_typeConfig.attributes.class ) | replace('undefined', '') | trim
+                        }
+                    })
+                ) }}
+            {% endif %}
+        {% else %}
+            {{ o_config | safe }}
+        {% endif %}
+    {% endfor %}
 {% endmacro %}
