@@ -78,7 +78,7 @@ module.exports = function(config){
                 return gulp.src(config.paths.src.html + '/' + config.files.src.html)
                     .pipe(plumber(config.plugins.plumber))
                     .pipe(data(_getData))
-                    .pipe(nunjucks.compile())
+                    .pipe(nunjucks.compile({ type: "native" }, config.plugins.nunjucks))
                     .pipe(gulpif(config.env.isDevelopment, beautify.html(config.plugins.beautify.html)))
                     .pipe(rename(config.files.dest.njk))
                     .pipe(plumber.stop())
@@ -116,6 +116,11 @@ module.exports = function(config){
                 .pipe(gulp.dest(config.paths.dest.images));
         },
         
+        videos: () => {
+            return gulp.src(config.paths.src.videos + '/' + config.files.src.videos)
+                .pipe(gulp.dest(config.paths.dest.videos));
+        },
+        
         fonts: () => {
             return gulp.src(config.paths.src.fonts + '/' + config.files.src.fonts)
                 .pipe(gulp.dest(config.paths.dest.fonts));
@@ -125,7 +130,7 @@ module.exports = function(config){
     Object.assign(_builds, {
         templates: gulp.series(_builds.njk, _builds.html),
         scripts: gulp.parallel(_builds.js),
-        styles: gulp.parallel(_builds.scss, _builds.images, _builds.fonts)
+        styles: gulp.parallel(_builds.scss, _builds.images, _builds.fonts, _builds.videos)
     });
     _builds.global = gulp.series(_builds.clean, _builds.favicon, _builds.templates, gulp.parallel(_builds.scripts, _builds.styles));
 

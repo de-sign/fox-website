@@ -1,9 +1,13 @@
 {% block footer %}
-    <footer class="fw-footer uk-text-center uk-text-small uk-padding-small uk-position-z-index" uk-scrollspy="cls: uk-animation-fade; delay: 1000" >
-        <ul class="uk-list uk-margin-remove">
-            <li>FOX Website</li>
-            <li class="uk-margin-left uk-margin-right">2019 Jérémy OUDOT</li>
-            <li><a href="http://unlicense.org" target="_blank">http://unlicense.org</a></li>
-        </ul>
-    </footer>
+    {% if FW.credits %}
+        <footer class="fw-footer uk-section uk-section-xsmall uk-position-bottom" uk-scrollspy="cls: uk-animation-fade; delay: 1000" >
+            <div class="uk-container uk-text-center">
+                <div class="uk-grid-small uk-child-width-1-1 uk-child-width-auto@s uk-flex-center" uk-grid>
+                    {% for fw_credits in FW.credits %}
+                        <div>{{ FW.macro.component(fw_credits) }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </footer>
+    {% endif %}
 {% endblock %}

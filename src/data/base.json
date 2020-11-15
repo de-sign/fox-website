@@ -98,5 +98,20 @@
                 }
             ]
         }
+    ],
+
+    "credits": [
+        "FOX Website",
+        "2019 Jérémy OUDOT",
+        {
+            "type": "uk-link",
+            "tag": "a",
+            "content": "http://unlicense.org",
+            "attributes": {
+                "href": "http://unlicense.org",
+                "target": "_blank",
+                "rel": "noreferrer noopener"
+            }
+        }
     ]
 }

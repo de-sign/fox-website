@@ -3,11 +3,20 @@
 	<head>
 		//=include ../_head.njk
 	</head>
-	<body class="uk-position-relative uk-background-cover {{ FW.template.mode }}" 
-		{% if FW.template.background %}
-			data-src="{{ FW.template.background }}" uk-img
+	<body
+		{% if FW.template.background.type == "image" %}
+			{{ FW.macro.printAttributes( FW.template.background.attributes | fw_assign({
+				'uk-img': '',
+				'class': FW.template.background.attributes.class + ' uk-position-relative uk-cover-container ' + FW.template.mode 
+			}) ) }}
+		{% else %}
+			class="{{ FW.template.background.class }} uk-position-relative uk-cover-container {{ FW.template.mode }}"
 		{% endif %}
 	>
+		{% if FW.template.background.type == "video" %}
+			{{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.background)) }}
+		{% endif %}
+
 		//=include _header.njk
 		//=include _main.njk
 		//=include _footer.njk

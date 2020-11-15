@@ -1,17 +1,5 @@
-@media screen and (min-width: $breakpoint-small) {
+@media screen and (max-width: $breakpoint-small) {
     .fw-footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        .uk-list > li{
-            display: inline;
-
-            &::before,
-            &::after{
-                display: none;
-            }
-        }
+        position: static !important;
     }
 }

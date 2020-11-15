@@ -72,3 +72,4 @@ dist/
 # Templates build
 src/pages/templates/*.njk
 !src/pages/templates/_head.njk
+!src/pages/templates/_macro.njk

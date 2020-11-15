@@ -7,19 +7,25 @@
 
                     {% block main_header %}
                         <header uk-scrollspy="cls: uk-animation-slide-bottom-medium" class="uk-margin-medium">
+
                             {% block main_icon %}
                                 {% if FW.content.icon %}
-                                    <img class="uk-text-emphasis" data-src="{{ FW.content.icon }}" width="200" height="200" alt="logo" uk-svg>
+                                    <div class="uk-margin-medium">
+                                        {{ FW.macro.component(FW.content.icon) }}
+                                    </div>
                                 {% endif %}
                             {% endblock %}
+
                             {% block main_title %}
                                 <h1 class="uk-heading-medium uk-margin-medium">{{ FW.content.title | safe }}</h1>
                             {% endblock %}
+
                             {% block main_subtitle %}
                                 {% if FW.content.subtitle %}
                                     <h2 class="uk-h4">{{ FW.content.subtitle | safe }}</h2>
                                 {% endif %}
                             {% endblock %}
+
                         </header>
                     {% endblock %}
 
@@ -32,19 +38,9 @@
                     {% endblock %}
 
                     {% block main_buttons %}
-                        {% if FW.content.buttons %}
-                            <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium">
-                                {% for a_button in FW.content.buttons %}
-                                    <a
-                                        {% if a_button.attributes %}
-                                            {% for s_name, s_value in a_button.attributes %}
-                                                {{ s_name }}="{{ s_value }}"
-                                            {% endfor %}
-                                        {% endif %}
-                                    >
-                                        {{ a_button.label | safe }}
-                                    </a>
-                                {% endfor %}
+                        {% if FW.content.footer %}
+                            <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium-top">
+                                {{ FW.macro.component(FW.content.footer) }}
                             </footer>
                         {% endif %}
                     {% endblock %}

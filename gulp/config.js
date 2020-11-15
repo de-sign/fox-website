@@ -37,7 +37,8 @@ Object.assign(exports, {
             js: `${src.assets}/js`,
             images: `${src.assets}/images`,
             favicon: `${src.assets}/favicon`,
-            fonts: `${src.assets}/fonts`
+            fonts: `${src.assets}/fonts`,
+            videos: `${src.assets}/videos`
         }),
         dest: Object.assign(dest, {
             html: `${dest.root}`,
@@ -46,7 +47,8 @@ Object.assign(exports, {
             js: `${dest.assets}/js`,
             images: `${dest.assets}/images`,
             favicon: `${dest.assets}/favicons`,
-            fonts: `${dest.assets}/fonts`
+            fonts: `${dest.assets}/fonts`,
+            videos: `${dest.assets}/videos`
         })
     },
 
@@ -65,7 +67,8 @@ Object.assign(exports, {
             js: '**/*.js',
             images: '**/*.*',
             favicon: '*.*',
-            fonts: '**/*.*'
+            fonts: '**/*.*',
+            videos: '**/*.*'
         },
         src: {
             njk: '**/core.njk',
@@ -74,7 +77,8 @@ Object.assign(exports, {
             js: '**/core.*',
             images: '**/*.*',
             favicon: '*.*',
-            fonts: '**/*.*'
+            fonts: '**/*.*',
+            videos: '**/*.*'
         },
         dest: {
             favicon: `_favicons.njk`,
@@ -106,6 +110,32 @@ Object.assign(exports, {
         include: {
             njk: undefined,
             js: undefined
+        },
+        nunjucks: {
+            filters: {
+                fw_assign: (oSource, oExtend, bDepth = true) => {
+                    if( Object.prototype.toString.call(oSource) == '[object Object]' ){
+                        let fAssign = (oSource, oExtend) => {
+                            let oReturn = Object.assign({}, oSource, oExtend);
+                            if(bDepth) {
+                                for( let sProp in oSource ){
+                                    if( Object.prototype.toString.call(oSource[sProp]) == '[object Object]' && Object.prototype.toString.call(oExtend[sProp]) == '[object Object]' ){
+                                        oReturn[sProp] = fAssign(oSource[sProp], oExtend[sProp]);
+                                    }
+                                }
+                            }
+                            return oReturn;
+                        };
+                        return fAssign(oSource, oExtend);
+                    } else {
+                        return oSource;
+                    }
+                },
+
+                fw_toArray: uValue =>{
+                    return Array.isArray(uValue) ? uValue : [uValue];
+                }
+            }
         },
         sourcemaps: {
             js: {
@@ -140,8 +170,6 @@ Object.assign(exports, {
             })
         ],
         favicons: {
-            background: '#333333',
-            theme_color: '#333333',
             display: 'standalone',
             orientation: 'portrait',
             version: 1.0,
