@@ -52,12 +52,12 @@
             <h5 class="uk-margin-remove">my-page.html :</h5>
 
 <pre class="uk-margin-remove"><code>&#x3C;!-- Extension du Layout --&#x3E;
-&#x7B;% extends 'templates/' + US.NJK.template + '.njk' %&#x7D;
+&#x7B;% extends 'templates/' + FW.template.name + '.njk' %&#x7D;
 
 &#x3C;!-- Extension des Blocks --&#x3E;
 &#x7B;% block part %&#x7D;
     &#x3C;p&#x3E;
-        &#x7B;&#x7B; US.NJK.text | safe &#x7D;&#x7D;
+        &#x7B;&#x7B; FW.content.text | safe &#x7D;&#x7D;
     &#x3C;/p&#x3E;
 &#x7B;% endblock %&#x7D;</code></pre>
 
@@ -76,8 +76,11 @@
         &quot;description&quot;: &quot;Un page statique&quot;
     },
 
-    &quot;NJK&quot;: {
-        &quot;template&quot;: &quot;my-template&quot;,
+    &quot;template&quot;: {
+        &quot;name&quot;: &quot;my-template&quot;,
+    },
+
+    &quot;content&quot;: {
         &quot;text&quot;: &quot;Ceci est le contenu de &#x3C;b&#x3E;part&#x3C;/b&#x3E;&quot;
     }
 }</code></pre>

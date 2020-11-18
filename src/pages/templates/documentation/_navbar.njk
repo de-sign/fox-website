@@ -1,0 +1,43 @@
+{% block _navbar %}
+
+    <header
+        uk-navbar
+        {% if FW.template.navbar.sticky %}
+            uk-sticky="{{ FW.template.navbar.sticky }}"
+        {% endif %}
+        {% if FW.template.menu.background.type == "image" %}
+            {{ FW.macro.printAttributes( FW.template.menu.background.attributes | fw_assign({
+                'uk-img': '',
+                'class': FW.template.menu.mode + ' uk-hidden@m uk-navbar-container ' + FW.template.menu.background.attributes.class
+            }) ) }}
+        {% else %}
+            class="uk-hidden@m uk-navbar-container {{ FW.template.menu.mode }} {{ FW.template.menu.background.class }}"
+        {% endif %}
+    >
+        {% if FW.template.menu.background.type == "video" %}
+            {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.menu.background)) }}
+        {% endif %}
+
+        <nav class="uk-navbar-{{ FW.template.menu.position }}">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#fw-offcanvas" uk-toggle uk-icon="icon: menu; ratio: 1.5;"></a>
+                </li>
+                {% if FW.content.navbar.icon %}
+                    <li>
+                        <a href="index.html">
+                            {{ FW.macro.component(FW.content.navbar.icon) }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if FW.content.navbar.buttons %}
+                    {{ FW.macro.wrapper(FW.content.navbar.buttons, {
+                        type: "fw-element",
+                        tag: "li"
+                    }) }}
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+{% endblock %}

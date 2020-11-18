@@ -7,11 +7,7 @@
 
                         {% for fw_menu in FW.menu %}
                             <ul class="uk-navbar-nav">
-                                <li
-                                    {% if fw_menu.sub %}
-                                        class="uk-nav-parent"
-                                    {% endif %}
-                                >
+                                <li {% if fw_menu.sub %} class="uk-nav-parent" {% endif %} >
                                     <a href="{{ fw_menu.href }}">{{ fw_menu.label | safe }}</a>
 
                                     {% if fw_menu.sub %}
@@ -19,11 +15,7 @@
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                         
                                                 {% for fw_sub in fw_menu.sub %}
-                                                    <li
-                                                        {% if fw_sub.sub %}
-                                                            class="uk-parent"
-                                                        {% endif %}
-                                                    >
+                                                    <li {% if fw_sub.sub %} class="uk-parent" {% endif %} >
                                                         <a href="{{ fw_sub.href }}">{{ fw_sub.label | safe }}</a>
 
                                                         {% if fw_sub.sub %}

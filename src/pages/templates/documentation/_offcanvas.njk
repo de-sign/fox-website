@@ -1,66 +1,36 @@
 {% block offcanvas %}
 
-    {% block offcanvas_placeholder %}
-        <div class="fw-offcanvas-placeholder uk-hidden@m uk-padding-small">
-            <ul class="uk-iconnav">
-                <li>
-                    <a href="#" uk-icon="icon: menu; ratio: 1.5;"></a>
-                </li>
-            </ul>
-        </div>
-    {% endblock %}
-
-    {% block offcanvas_navbar %}
-        <section class="fw-offcanvas-navbar uk-hidden@m uk-position-fixed uk-position-top uk-padding-small uk-position-z-index {{ FW.template.menu.mode }}"
-            {% if FW.template.menu.background %}
-                data-src="{{ FW.template.menu.background }}" uk-img
+    <section id="fw-offcanvas" uk-offcanvas="overlay: true; mode: push; {% if FW.template.menu.position == "right" %} flip: true; {% endif %}" >
+        <div
+            {% if FW.template.menu.background.type == "image" %}
+                {{ FW.macro.printAttributes( FW.template.menu.background.attributes | fw_assign({
+                    'uk-img': '',
+                    'class': FW.template.menu.mode + ' uk-offcanvas-bar uk-padding-remove ' + FW.template.menu.background.attributes.class
+                }) ) }}
+            {% else %}
+                class="uk-offcanvas-bar uk-padding-remove {{ FW.template.menu.background.mode }} {{ FW.template.menu.background.class }}"
             {% endif %}
         >
-            <ul class="uk-iconnav">
-                <li>
-                    <a href="#fw-offcanvas" uk-toggle uk-icon="icon: menu; ratio: 1.5;"></a>
-                </li>
-                <li class="uk-margin-small-left">
-                    <a href="index.html">
-                        <img class="fw-offcanvas-logo" data-src="{{ FW.content.menu.icon }}" width="25" height="25" alt="logo" uk-svg>
-                    </a>
-                </li>
-                {% if FW.content.menu.buttons %}
-                    {% for fw_button in FW.content.menu.buttons %}
-                        <li class="uk-margin-small-left">
-                            <a
-                                {% if fw_button.attributes %}
-                                    {% for a_name, a_value in fw_button.attributes %}
-                                        {% if a_name != "class" %}
-                                            {{ a_name }}="{{ a_value }}"
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
 
-                                uk-icon="{{ fw_button.icon }}"
-                            >
-                                {{ fw_button.short_label | safe }}
-                            </a>
-                        </li>
-                    {% endfor %}
+            <div class="uk-cover-container uk-height-1-1">
+                {% if FW.template.background.type == "video" %}
+                    {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.background)) }}
                 {% endif %}
-            </ul>
-        </section>
-    {% endblock %}
 
-    {% block offcanvas_content %}
-        <section id="fw-offcanvas" uk-offcanvas="overlay: true; mode: push; {% if FW.template.menu.position == "right" %} flip: true; {% endif %}" >
-            <div class="uk-offcanvas-bar uk-padding-remove {{ FW.template.menu.mode }}"
-                {% if FW.template.menu.background %}
-                    data-src="{{ FW.template.menu.background }}" uk-img
-                {% endif %}
-            >
+                <header class="uk-text-center uk-padding">
+                    {% block offcanvas_icon %}
+                        <a href="index.html">
+                            {{ FW.macro.component(FW.content.menu.icon) }}
+                            <h2 class="uk-margin-small-top uk-margin-remove-bottom">{{ FW.content.menu.title | safe }}</h2>
+                        </a>
+                    {% endblock %}
+                </header>
+                
                 {% block offcanvas_nav %}
-                    {% set scrollspy_offset = 60 %}
                     //=include _nav.njk
                 {% endblock %}
             </div>
-        </section>
-    {% endblock %}
+        </div>
+    </section>
 
 {% endblock %}

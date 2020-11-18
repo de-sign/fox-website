@@ -11,25 +11,70 @@
         "name":  "documentation",
         "menu": {
             "mode": "uk-light",
-            "background": "assets/images/backgrounds/leaf-dark.jpg",
-            "class": "uk-nav-default uk-margin-medium",
-            "scrollspy": "closest: li; scroll: true",
-            "position": "rleftight"
+            "position": "left",
+            "background": {
+                "type": "image",
+                "attributes": {
+                    "data-src": "assets/images/backgrounds/leaf-dark.jpg",
+                    "class": "uk-background-cover"
+                }
+            }
+        },
+        "nav": {
+            "class": "uk-nav-default",
+            "scrollspy": "closest: li; scroll: true"
+        },
+        "navbar": {
+            "sticky": "show-on-up: true; animation: uk-animation-slide-top;"
         }
     },
-
+    
     "content": {
         "menu": {
-            "icon": "assets/images/icons/foxwebsite.svg",
+            "icon": {
+                "type": "uk-svg",
+                "attributes": {
+                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "width": 100,
+                    "height": 100,
+                    "alt": "Website logo",
+                    "class": "uk-text-emphasis"
+                }
+            },
             "title": "FOX Website",
+            "buttons": [
+                {
+                    "type": "uk-button",
+                    "tag": "a",
+                    "content": "<span uk-icon=\"github\"></span> Github",
+                    "attributes": {
+                        "href": "https://github.com/de-sign/fox-website",
+                        "class": "uk-button-default uk-margin-small-left uk-width-2-3 uk-width-auto@s",
+                        "target": "_blank",
+                        "rel": "noreferrer noopener"
+                    }
+                }
+            ]
+        },
+
+        "navbar": {
+            "icon": {
+                "type": "uk-svg",
+                "attributes": {
+                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "width": 25,
+                    "height": 25,
+                    "alt": "Website logo"
+                }
+            },
 
             "buttons": [
                 {
-                    "label": "<span uk-icon=\"icon: github\"></span> <span class=\"uk-text-middle\">Github</span>",
-                    "icon": "icon: github; ratio: 1.5;",
+                    "type": "uk-icon",
+                    "tag": "a",
                     "attributes": {
-                        "href": "https://github.com/de-sign/uikit-starter",
-                        "class": "uk-button uk-button-default uk-margin-small-left uk-width-2-3 uk-width-auto@s",
+                        "uk-icon": "icon: github; ratio: 1.5;",
+                        "href": "https://github.com/de-sign/fox-website",
                         "target": "_blank",
                         "rel": "noreferrer noopener"
                     }

@@ -24,7 +24,7 @@ __UIKit__ en __SCSS__ pour la partie front-end.
 ## Installation
 
 ```
-git clone https://github.com/de-sign/uikit-starter my-project
+git clone https://github.com/de-sign/fox-website my-project
 cd my-project
 git remote set-url origin git@your.git.repo.example.com:user/my-project.git
 npm i
