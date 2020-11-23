@@ -11,7 +11,7 @@ let env = (process.env.NODE_ENV || 'development').trim(),
         root: 'src',
         assets: 'src/assets',
         pages: 'src/pages',
-        templates: 'src/pages/templates',
+        templates: 'src/pages/_templates',
         data: 'src/data'
     },
     dest = {
@@ -60,7 +60,7 @@ Object.assign(exports, {
             ],
             html: [
                 '../data/*.json',
-                '*/*.json',
+                '**/*.json',
                 '*/**/*.html'
             ],
             scss: '**/*.scss',
@@ -71,10 +71,10 @@ Object.assign(exports, {
             videos: '**/*.*'
         },
         src: {
-            njk: '**/core.njk',
-            html: '*/*.html',
+            njk: '**/template.njk',
+            html: '**/page.html',
             scss: '*.scss',
-            js: '**/core.*',
+            js: '**/script.*',
             images: '**/*.*',
             favicon: '*.*',
             fonts: '**/*.*',
@@ -86,8 +86,11 @@ Object.assign(exports, {
                 file.basename = file.dirname.split('/').pop();
                 file.dirname = '';
             },
-            html: file => {
-                file.dirname = '';
+            html: (FW, file) => {
+                let aFile = FW.url.path.split('/');
+                file.basename = aFile.pop().replace(/.html$/gi, '');
+                file.extname = '.html';
+                file.dirname = aFile.join('/');
             },
             js: file => {
                 let aFile = file.dirname.split('/');

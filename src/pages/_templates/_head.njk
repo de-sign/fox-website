@@ -1,4 +1,4 @@
-{% import 'templates/_macro.njk' as FW_macro %}
+{% import '_templates/_macro.njk' as FW_macro %}
 {% set FW = FW | fw_assign({ macro: FW_macro }) %}
 
 {% set s_urlRegExp = r/^https?:\/\//i %}
@@ -26,7 +26,7 @@
 		{% if s_urlRegExp.test(s_file) %}
 			<link rel="stylesheet" href="{{ s_file }}" />
 		{% else %}
-			<link rel="stylesheet" href="assets/css/{{ s_file }}.css" />
+			<link rel="stylesheet" href="assets/css/{{ s_file }}" />
 		{% endif %}
 	{% endfor %}
 {% endif %}
@@ -37,7 +37,7 @@
 		{% if s_urlRegExp.test(s_file) %}
 			<script src="{{ s_file }}"></script>
 		{% else %}
-			<script src="assets/js/{{ s_file }}.js"></script>
+			<script src="assets/js/{{ s_file }}"></script>
 		{% endif %}
 	{% endfor %}
 {% endif %}

@@ -11,7 +11,7 @@
 		"description": "Simple Node.js project for develop your static website",
 		"viewport": "width=device-width, initial-scale=1.0"
     },
-    "stylesheet": ["main"],
+    "stylesheet": ["main.css"],
     "script": [
         "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js",
         "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"

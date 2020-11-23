@@ -30,7 +30,7 @@ module.exports = function(config){
 
         favicon: (() => {
             function _getData(file){
-                let FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/base.json')),
+                let FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json')),
                     aPath = config.paths.dest.favicon.split('/');
                     aPath.shift();
 
@@ -66,10 +66,10 @@ module.exports = function(config){
         },
         
         html: (() => {
+            let FW = null;
             function _getData(file){
-                let FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/base.json')),
-                    f_path = path.dirname(file.path) + '/' + path.basename(file.path, '.html') + '.json';
-
+                let f_path = path.dirname(file.path) + '/page.json';
+                FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json'))
                 fs.existsSync(f_path) && merge(FW, JSON.parse(fs.readFileSync(f_path)));
                 return { FW };
             };
@@ -80,7 +80,7 @@ module.exports = function(config){
                     .pipe(data(_getData))
                     .pipe(nunjucks.compile({ type: "native" }, config.plugins.nunjucks))
                     .pipe(gulpif(config.env.isDevelopment, beautify.html(config.plugins.beautify.html)))
-                    .pipe(rename(config.files.dest.njk))
+                    .pipe(rename( file => config.files.dest.html(FW, file) ))
                     .pipe(plumber.stop())
                     .pipe(gulp.dest(config.paths.dest.html));
             };

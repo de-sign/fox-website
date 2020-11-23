@@ -22,8 +22,8 @@
                 "type": "uk-svg",
                 "attributes": {
                     "data-src": "assets/images/icons/foxwebsite.svg",
-                    "width": 300,
-                    "height": 300,
+                    "width": 200,
+                    "height": 200,
                     "alt": "Fox Website logo",
                     "class": "uk-text-emphasis uk-visible@s"
                 }
@@ -32,8 +32,8 @@
                 "type": "uk-svg",
                 "attributes": {
                     "data-src": "assets/images/icons/foxwebsite.svg",
-                    "width": 200,
-                    "height": 200,
+                    "width": 150,
+                    "height": 150,
                     "alt": "Fox Website logo",
                     "class": "uk-text-emphasis uk-hidden@s"
                 }
