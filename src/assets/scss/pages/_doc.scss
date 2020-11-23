@@ -5,18 +5,6 @@
     }
 }
 
-.fw-menu {
-    .fw-nav {
-        overflow: auto;
-    }
-}
-
-#fw-offcanvas {
-    .uk-cover-container {
-        overflow: auto;
-    }
-}
-
 @media (max-width: $breakpoint-medium) {
     .fw-body {
         flex-direction: column !important;

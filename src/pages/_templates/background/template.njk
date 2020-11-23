@@ -7,10 +7,10 @@
 		{% if FW.template.background.type == "image" %}
 			{{ FW.macro.printAttributes( FW.template.background.attributes | fw_assign({
 				'uk-img': '',
-				'class': FW.template.background.attributes.class + ' uk-position-relative uk-cover-container ' + FW.template.mode 
+				'class': FW.template.background.attributes.class + ' uk-position-relative uk-cover-container uk-overflow-auto ' + FW.template.mode 
 			}) ) }}
 		{% else %}
-			class="{{ FW.template.background.class }} uk-position-relative uk-cover-container {{ FW.template.mode }}"
+			class="{{ FW.template.background.class }} uk-position-relative uk-cover-container uk-overflow-auto {{ FW.template.mode }}"
 		{% endif %}
 	>
 		{% if FW.template.background.type == "video" %}

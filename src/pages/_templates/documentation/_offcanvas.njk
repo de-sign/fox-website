@@ -12,7 +12,7 @@
             {% endif %}
         >
 
-            <div class="uk-cover-container uk-height-1-1">
+            <div class="uk-cover-container uk-height-1-1 uk-overflow-uato">
                 {% if FW.template.background.type == "video" %}
                     {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.background)) }}
                 {% endif %}
