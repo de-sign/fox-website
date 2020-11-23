@@ -1,10 +1,10 @@
 <div id="fw-page--page" class="uk-margin-large">
     <h3>Pages</h3>
     <p>
-        La tâche <b>Gulp</b> appellée <mark>html</mark> génère chaques pages <mark>*.html</mark> présentes dans un dossier qui lui est propre situé dans <mark>pages/</mark>.
+        La tâche <b>Gulp</b> appellée <mark>html</mark> génère chaques pages <mark>page.html</mark> présentes dans un dossier qui lui est propre situé dans <mark>pages/</mark> à l'emplacement indiqué dans son fichier de configuration <mark>page.json</mark>.
     </p>
     <p>
-        Les informations présentes dans votre page sont restituées avec l'aide du fichier de configuration global <mark>data/base.json</mark>, étendue avec le fichier de configuration <mark>*.json</mark> propre à cette dernière si existant.
+        Les informations présentes dans votre page sont restituées avec l'aide du fichier de configuration global <mark>data/website.json</mark>, étendue avec le fichier de configuration <mark>page.json</mark> propre à cette dernière si existant.
     </p>
     <p>
         Pour créer votre propre page, il est recommandé de suivre les consignes suivantes :
@@ -29,14 +29,14 @@
                                     <li>
                                         <a>
                                             <mark>
-                                                <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> my-page.html
+                                                <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> page.html
                                             </mark>
                                         </a>
                                     </li>
                                     <li>
                                         <a>
                                             <mark>
-                                                <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> my-page.json
+                                                <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> page.json
                                             </mark>
                                         </a>
                                     </li>
@@ -49,10 +49,10 @@
         </div>
 
         <div>
-            <h5 class="uk-margin-remove">my-page.html :</h5>
+            <h5 class="uk-margin-remove">page.html :</h5>
 
 <pre class="uk-margin-remove"><code>&#x3C;!-- Extension du Layout --&#x3E;
-&#x7B;% extends 'templates/' + FW.template.name + '.njk' %&#x7D;
+&#x7B;% extends '_templates/' + FW.template.name + '.njk' %&#x7D;
 
 &#x3C;!-- Extension des Blocks --&#x3E;
 &#x7B;% block part %&#x7D;
@@ -64,7 +64,7 @@
         </div>
 
         <div>
-            <h5 class="uk-margin-remove">my-page.json :</h5>
+            <h5 class="uk-margin-remove">page.json :</h5>
 
 <pre class="uk-margin-remove"><code>{
     &quot;url&quot;: {
@@ -88,6 +88,9 @@
         </div>
 
     </div>
+    <p>
+        Dans ce cas, la tâche va générer un fichier <mark>my-page.html</mark> à la racine de votre site statique.
+    </p>
     <p>
         Si vous souhaitez modifier cette logique, n'oubliez pas de modifier le fichier <mark>gulp/config.js</mark> en conséquence&nbsp;!
     </p>

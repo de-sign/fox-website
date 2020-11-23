@@ -1,7 +1,7 @@
 <div id="fw-page--tpl" class="uk-margin-large">
     <h3>Templates</h3>
     <p>
-        La tâche <b>Gulp</b> appellée <mark>njk</mark> génère chaque templates présents dans un dossier qui lui est propre situé dans <mark>pages/templates/</mark>.
+        La tâche <b>Gulp</b> appellée <mark>njk</mark> génère chaque templates présents dans un dossier qui lui est propre situé dans <mark>pages/_templates/</mark>.
     </p>
     <p>
         Pour créer votre propre template, il est recommandé de suivre les consignes suivantes :
@@ -20,7 +20,7 @@
                         <ul class="uk-nav-sub">
                             <li class="uk-parent">
                                 <a>
-                                    <span class="uk-margin-small-right" uk-icon="icon: folder"></span> templates
+                                    <span class="uk-margin-small-right" uk-icon="icon: folder"></span> _templates
                                 </a>
                                 <ul class="uk-nav-sub">
                                     <li class="uk-parent">
@@ -40,7 +40,7 @@
                                             <li>
                                                 <a>
                                                     <mark>
-                                                        <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> core.njk
+                                                        <span class="uk-margin-small-right" uk-icon="icon: file-text"></span> template.njk
                                                     </mark>
                                                 </a>
                                             </li>
@@ -60,7 +60,7 @@
         </div>
 
         <div>
-            <h5 class="uk-margin-remove">core.njk :</h5>
+            <h5 class="uk-margin-remove">template.njk :</h5>
 
 <pre class="uk-margin-remove"><code>&#x3C;!doctype &#x7B;&#x7B;FW.doctype&#x7D;&#x7D;&#x3E;
 &#x3C;html lang=&#x22;&#x7B;&#x7B;FW.lang&#x7D;&#x7D;&#x22;&#x3E;
@@ -84,7 +84,7 @@
         </div>
     </div>
     <p>
-        Dans ce cas, la tâche va générer un fichier <mark>my-template.njk</mark> dans le dossier <mark>pages/templates/</mark>.
+        Dans ce cas, la tâche va générer un fichier <mark>my-template.njk</mark> dans le dossier <mark>pages/_templates/</mark>.
         C'est ce dernier que vous devrez utiliser comme template de référence pour vos pages statiques.
     </p>
     <p>
