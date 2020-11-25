@@ -1,6 +1,6 @@
 {
     "url": {
-        "path": "doc.html"
+        "path": "/doc.html"
     },
 	"meta": {
 		"title": "FOX Website - Documentation",
@@ -15,7 +15,7 @@
             "background": {
                 "type": "image",
                 "attributes": {
-                    "data-src": "assets/images/backgrounds/leaf-dark.jpg",
+                    "data-src": "{{ FW.paths.images }}/backgrounds/leaf-dark.jpg",
                     "class": "uk-background-cover"
                 }
             }
@@ -34,7 +34,7 @@
             "icon": {
                 "type": "uk-svg",
                 "attributes": {
-                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "data-src": "{{ FW.paths.images }}/icons/foxwebsite.svg",
                     "width": 100,
                     "height": 100,
                     "alt": "Website logo",
@@ -61,7 +61,7 @@
             "icon": {
                 "type": "uk-svg",
                 "attributes": {
-                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "data-src": "{{ FW.paths.images }}/icons/foxwebsite.svg",
                     "width": 30,
                     "height": 30,
                     "alt": "Website logo"

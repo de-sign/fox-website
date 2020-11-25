@@ -1,0 +1,11 @@
+{% block footer %}
+    {% if FW.credits %}
+        <footer class="fw-footer uk-section uk-section-small">
+            <div class="uk-container uk-text-center">
+                <div class="uk-grid-small uk-child-width-1-1 uk-child-width-auto@s uk-flex-center" uk-grid>
+                    {{ FW.macro.wrapper(FW.credits) }}
+                </div>
+            </div>
+        </footer>
+    {% endif %}
+{% endblock %}

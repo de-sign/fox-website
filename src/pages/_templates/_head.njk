@@ -5,7 +5,7 @@
 
 <!-- Balise meta -->
 <meta charset="{{ FW.charset }}">
-<link rel="canonical" href="{{ FW.url.host }}/{{ FW.url.path }}" />
+<link rel="canonical" href="{{ FW.url.href }}" />
 
 {% if FW.meta %}
 	<title>{{ FW.meta.title }}</title>
@@ -26,7 +26,7 @@
 		{% if s_urlRegExp.test(s_file) %}
 			<link rel="stylesheet" href="{{ s_file }}" />
 		{% else %}
-			<link rel="stylesheet" href="assets/css/{{ s_file }}" />
+			<link rel="stylesheet" href="{{ FW.paths.scss }}/{{ s_file }}" />
 		{% endif %}
 	{% endfor %}
 {% endif %}
@@ -37,7 +37,7 @@
 		{% if s_urlRegExp.test(s_file) %}
 			<script src="{{ s_file }}"></script>
 		{% else %}
-			<script src="assets/js/{{ s_file }}"></script>
+			<script src="{{ FW.paths.js }}/{{ s_file }}"></script>
 		{% endif %}
 	{% endfor %}
 {% endif %}

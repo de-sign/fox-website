@@ -14,12 +14,12 @@
 		{% endif %}
 	>
 		{% if FW.template.menu.background.type == "video" %}
-			{{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.menu.background)) }}
+			{{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(FW.template.menu.background)) }}
 		{% endif %}
         
         <header class="uk-text-center uk-padding uk-width-auto">
             {% block menu_icon %}
-                <a href="index.html">
+                <a href="{{ FW.paths.html }}/index.html">
                     {{ FW.macro.component(FW.content.menu.icon) }}
                     <h2 class="uk-margin-small-top">{{ FW.content.menu.title | safe }}</h2>
                 </a>

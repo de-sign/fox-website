@@ -6,8 +6,8 @@ const plumber       = require('gulp-plumber');
 const include       = require('gulp-include');
 const data          = require('gulp-data');
 const fs            = require('fs');
+const url           = require('url');
 const path          = require('path');
-const through       = require('through');
 const nunjucks      = require('gulp-nunjucks');
 const gulpif        = require('gulp-if');
 const sourcemaps    = require('gulp-sourcemaps');
@@ -19,6 +19,7 @@ const rename        = require('gulp-rename');
 const cleanCss      = require('gulp-clean-css');
 const imagemin      = require('gulp-imagemin');
 const favicons      = require('gulp-favicons');
+const replace      = require('gulp-replace');
 
 // Export
 module.exports = function(config){
@@ -30,15 +31,13 @@ module.exports = function(config){
 
         favicon: (() => {
             function _getData(file){
-                let FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json')),
-                    aPath = config.paths.dest.favicon.split('/');
-                    aPath.shift();
+                let FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json'));
 
                 return Object.assign({}, FW.favicon, config.plugins.favicons, {
                     appName: FW.meta.title,
                     appDescription: FW.meta.description,
-                    url: FW.url.host,
-                    path: aPath.join('/'),
+                    url: FW.url.origin,
+                    path: '{{ FW.paths.favicon }}',
                     html: config.files.dest.favicon
                 } );
             };
@@ -51,7 +50,11 @@ module.exports = function(config){
                 },
                 function favicon__move_html() {
                     return gulp.src(config.paths.dest.favicon + '/' + config.files.dest.favicon)
+                        .pipe(replace(/(?:%7B){2}(?:%20)*(.+?)(?:%20)*(?:%7D){2}/gi, '{{ $1 }}'))
                         .pipe(gulp.dest(config.paths.src.templates));
+                },
+                function favicon__delete() {
+                    return del([config.paths.dest.favicon + '/' + config.files.dest.favicon], { force: true });
                 }
             );
         })(),
@@ -68,10 +71,39 @@ module.exports = function(config){
         html: (() => {
             let FW = null;
             function _getData(file){
-                let f_path = path.dirname(file.path) + '/page.json';
-                FW = JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json'))
-                fs.existsSync(f_path) && merge(FW, JSON.parse(fs.readFileSync(f_path)));
-                return { FW };
+                FW = merge(
+                    JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json')),
+                    JSON.parse(fs.readFileSync(path.dirname(file.path) + '/page.json'))
+                );
+                FW.url = url.parse(FW.url.origin + FW.url.path);
+                
+                let s_root = config.paths.dest.root;
+                FW.paths = {};
+                for( let s_path in config.paths.dest ){
+                    FW.paths[s_path] = path.relative( s_root + path.dirname(FW.url.pathname), config.paths.dest[s_path] ).split(path.sep).join('/');
+                }
+
+                let mustache = (uData) => {
+                    if( Object.prototype.toString.call(uData) === '[object Object]' ){
+                        for( let sProp in uData ){
+                            uData[sProp] = mustache(uData[sProp]);
+                        }
+                        return uData;
+                    } else if( Array.isArray(uData) ){
+                        return uData.map(mustache);
+                    } else if( typeof uData === 'string' ) {
+                        return uData.replace( /\{\{\s*FW\.(.+?)\s*\}\}/g, (sFind, sCatch) => {
+                            let sReturn = FW;
+                            sCatch.split('.').forEach( sProp => {
+                                sReturn = sReturn[sProp];
+                            } );
+                            return sReturn.toString();
+                        } );
+                    } else {
+                        return uData;
+                    }
+                }
+                return { FW: mustache(FW) };
             };
 
             return function html() {

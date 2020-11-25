@@ -1,0 +1,46 @@
+{% block header %}
+    {% if FW.template.navbar and FW.menu %}
+        <header class="fw-header uk-section uk-padding-remove-vertical uk-position-top uk-position-z-index">
+            <div class="uk-container">
+                <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                    <div class="{{ FW.template.navbar }}">
+
+                        {% for fw_menu in FW.menu %}
+                            <ul class="uk-navbar-nav">
+                                <li {% if fw_menu.sub %} class="uk-nav-parent" {% endif %} >
+                                    <a href="{{ fw_menu.href }}">{{ fw_menu.label | safe }}</a>
+
+                                    {% if fw_menu.sub %}
+                                        <div class="uk-navbar-dropdown">
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        
+                                                {% for fw_sub in fw_menu.sub %}
+                                                    <li {% if fw_sub.sub %} class="uk-parent" {% endif %} >
+                                                        <a href="{{ fw_sub.href }}">{{ fw_sub.label | safe }}</a>
+
+                                                        {% if fw_sub.sub %}
+                                                            <ul class="uk-nav-sub">
+                                                                {% for fw_ssub in fw_sub.sub %}
+                                                                    <li>
+                                                                        <a href="{{ fw_ssub.href }}">{{ fw_ssub.label | safe }}</a>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </li>
+                                
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+    {% endif %}
+{% endblock %}

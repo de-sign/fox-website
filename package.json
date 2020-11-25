@@ -18,7 +18,6 @@
         "FW-win-build-dev": "SET NODE_ENV=development & gulp build",
         "FW-win-build-test": "SET NODE_ENV=testing & gulp build",
         "FW-win-build-prod": "SET NODE_ENV=production & gulp build",
-
         "FW-unix-test": "NODE_ENV=testing gulp",
         "FW-unix-prod": "NODE_ENV=production gulp",
         "FW-unix-build-dev": "NODE_ENV=development gulp build",
@@ -42,6 +41,7 @@
         "gulp-nunjucks": "^4.0.0",
         "gulp-plumber": "^1.2.1",
         "gulp-rename": "^1.4.0",
+        "gulp-replace": "^1.0.0",
         "gulp-sass": "^4.0.2",
         "gulp-sourcemaps": "^2.6.5",
         "gulp-uglify": "^3.0.2",

@@ -14,12 +14,12 @@
 
             <div class="uk-cover-container uk-height-1-1 uk-overflow-uato">
                 {% if FW.template.background.type == "video" %}
-                    {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.background)) }}
+                    {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(FW.template.background)) }}
                 {% endif %}
 
                 <header class="uk-text-center uk-padding">
                     {% block offcanvas_icon %}
-                        <a href="index.html">
+                        <a href="{{ FW.paths.html }}/index.html">
                             {{ FW.macro.component(FW.content.menu.icon) }}
                             <h2 class="uk-margin-small-top uk-margin-remove-bottom">{{ FW.content.menu.title | safe }}</h2>
                         </a>

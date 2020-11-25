@@ -1,6 +1,6 @@
 {
     "url": {
-        "path": "index.html"
+        "path": "/index.html"
     },
 
     "template": {
@@ -10,7 +10,7 @@
         "background": {
             "type": "image",
             "attributes": {
-                "data-src": "assets/images/backgrounds/leaf-dark.jpg",
+                "data-src": "{{ FW.paths.images }}/backgrounds/leaf-dark.jpg",
                 "class": "uk-background-cover"
             }
         }
@@ -21,7 +21,7 @@
             {
                 "type": "uk-svg",
                 "attributes": {
-                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "data-src": "{{ FW.paths.images }}/icons/foxwebsite.svg",
                     "width": 200,
                     "height": 200,
                     "alt": "Fox Website logo",
@@ -31,7 +31,7 @@
             {
                 "type": "uk-svg",
                 "attributes": {
-                    "data-src": "assets/images/icons/foxwebsite.svg",
+                    "data-src": "{{ FW.paths.images }}/icons/foxwebsite.svg",
                     "width": 150,
                     "height": 150,
                     "alt": "Fox Website logo",
@@ -48,7 +48,7 @@
                 "tag": "a",
                 "content": "Get started",
                 "attributes": {
-                    "href": "doc.html",
+                    "href": "{{ FW.paths.html }}/doc.html",
                     "class": "uk-button-primary uk-margin-small-bottom uk-margin-small-left uk-margin-small-right uk-width-2-3 uk-width-auto@s"
                 }
             },

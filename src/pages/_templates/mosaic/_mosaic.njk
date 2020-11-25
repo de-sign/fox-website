@@ -1,0 +1,57 @@
+{% macro mosaicPart(o_background, o_part) %}
+    <div
+        {% if o_background.type == "image" %}
+            {{ FW.macro.printAttributes( o_background.attributes | fw_assign(o_part) | fw_assign({
+                'uk-img': '',
+                'class': o_background.attributes.class + ' uk-cover-container ' + o_part.class
+            }) ) }}
+        {% else %}
+            {{ FW.macro.printAttributes( fw_assign(o_part) | fw_assign({
+                'class': o_background.class + ' uk-cover-container ' + o_part.class
+            }) ) }}
+        {% endif %}
+    >
+        {% if o_background.type == "video" %}
+            {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(o_background)) }}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+<section class="uk-padding uk-flex-middle uk-flex-center" uk-grid>
+    <div uk-parallax="y: -100">
+        {{ mosaicPart( FW.template.background, {
+            class: 'uk-width-small uk-height-large',
+            'uk-scrollspy': 'cls: uk-animation-scale-up; delay: 750;'
+        }) }}
+    </div>
+    <div>
+        <div class="uk-flex-bottom" uk-grid>
+            <div uk-parallax="y: -25; easing: 2;">
+                {{ mosaicPart( FW.template.background, {
+                    class: 'uk-width-large uk-height-large',
+                    'uk-scrollspy': 'cls: uk-animation-scale-down; delay: 500;'
+                }) }}
+            </div>
+            <div uk-parallax="y: -100; easing: -0.5;">
+                {{ mosaicPart( FW.template.background, {
+                    class: 'uk-width-small uk-height-medium',
+                    'uk-scrollspy': 'cls: uk-animation-slide-top; delay: 1000;'
+                }) }}
+            </div>
+        </div>
+        <div class="uk-flex-top" uk-grid>
+            <div>
+                {{ mosaicPart( FW.template.background, {
+                    class: 'uk-width-small uk-height-medium',
+                    'uk-scrollspy': 'cls: uk-animation-slide-bottom; delay: 1000;'
+                }) }}
+            </div>
+            <div uk-parallax="x: 100; easing: 1;">
+                {{ mosaicPart( FW.template.background, {
+                    class: 'uk-width-large uk-height-small',
+                    'uk-scrollspy': 'cls: uk-animation-scale-up; delay: 750;'
+                }) }}
+            </div>
+        </div>
+    </div>
+</section>

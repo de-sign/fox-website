@@ -1,0 +1,15 @@
+$global-emphasis-color: #333;
+$global-color: #666;
+$global-background: #fff;
+$global-font-family: 'Montserrat', sans-serif;
+$global-font-size: 16px;
+
+$base-heading-font-family: 'Suez One', serif;
+
+$button-default-background: transparent;
+$button-default-hover-color: darken($global-emphasis-color, 5%);
+$button-primary-background: $global-emphasis-color;
+$button-border-width: 2px;
+$button-default-border: $global-emphasis-color;
+$button-default-hover-border: darken($global-emphasis-color, 20%);
+$button-default-active-border: darken($global-emphasis-color, 30%);

@@ -2,10 +2,10 @@
 
 /* abstracts */
 @import
-	'main/abstracts/variables',
+	'forest/abstracts/variables',
 	'node_modules/uikit/src/scss/variables-theme',
 	'node_modules/uikit/src/scss/mixins-theme',
-	'main/abstracts/mixins';
+	'forest/abstracts/mixins';
 
 /* vendors */
 @import
@@ -13,7 +13,7 @@
 
 /* base */
 @import
-	'main/base/typography';
+	'forest/base/typography';
 
 /* layout * /
 @import
@@ -24,5 +24,4 @@
 
 /* pages */
 @import
-	'main/pages/index',
-	'main/pages/doc';
+	'forest/pages/index';

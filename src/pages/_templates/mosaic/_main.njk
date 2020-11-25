@@ -1,0 +1,70 @@
+{% block main %}
+    <main class="fw-main" >
+
+        {% block main_intro %}
+            <section class="uk-section uk-padding-remove">
+    
+                <div class="uk-grid-collapse uk-height-viewport uk-flex-middle" uk-grid>
+                    <div class="uk-width-1-3">
+
+                        {% block main_left %}
+                            <section class="uk-padding uk-text-right">
+
+                                {% block main_header %}
+                                    <header uk-scrollspy="cls: uk-animation-slide-bottom-medium" class="uk-margin-medium">
+
+                                        {% block main_icon %}
+                                            {% if FW.content.icon %}
+                                                <div class="uk-margin-small">
+                                                    {{ FW.macro.component(FW.content.icon) }}
+                                                </div>
+                                            {% endif %}
+                                        {% endblock %}
+
+                                        {% block main_title %}
+                                            <h1 class="uk-heading-medium uk-margin-medium">{{ FW.content.title | safe }}</h1>
+                                        {% endblock %}
+
+                                        {% block main_subtitle %}
+                                            {% if FW.content.subtitle %}
+                                                <h2 class="uk-h4">{{ FW.content.subtitle | safe }}</h2>
+                                            {% endif %}
+                                        {% endblock %}
+
+                                    </header>
+                                {% endblock %}
+
+                                {% block main_text %}
+                                    {% if FW.content.description %}
+                                        <div uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 250" class="uk-margin-medium">
+                                            <p>{{ FW.content.description | safe }}</p>
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+
+                                {% block main_buttons %}
+                                    {% if FW.content.footer %}
+                                        <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium-top">
+                                            {{ FW.macro.component(FW.content.footer) }}
+                                        </footer>
+                                    {% endif %}
+                                {% endblock %}
+
+                            </section>
+                        {% endblock %}
+
+                    </div>
+
+                    <div class="uk-width-2-3">
+                        {% block main_right %}
+                            //=include _mosaic.njk
+                        {% endblock %}
+                    </div>
+
+                </div>
+            </section>
+        {% endblock %}
+
+        {% block main_content %}{% endblock %}
+    </main>
+{% endblock %}

@@ -14,7 +14,7 @@
 		{% endif %}
 	>
 		{% if FW.template.background.type == "video" %}
-			{{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | assign(FW.template.background)) }}
+			{{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(FW.template.background)) }}
 		{% endif %}
 
 		//=include _header.njk

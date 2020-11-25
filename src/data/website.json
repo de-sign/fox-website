@@ -3,7 +3,7 @@
     "lang": "fr",
     "charset": "UTF8",
     "url": {
-        "host": "https://fox-website.netlify.app/",
+        "origin": "https://fox-website.netlify.app",
         "path": ""
     },
 	"meta": {
@@ -34,23 +34,23 @@
     "menu": [
         {
             "label": "Présentation",
-            "href": "doc.html#fw-page--intro",
+            "href": "{{ FW.paths.html }}/doc.html#fw-page--intro",
             "sub": [
                 {
                     "label": "Introduction",
-                    "href": "doc.html#fw-page--intro"
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--intro"
                 },
                 {
                     "label": "Node.js",
-                    "href": "doc.html#fw-page--nodejs",
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--nodejs",
                     "sub": [
                         {
                             "label": "Installation",
-                            "href": "doc.html#fw-page--install"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--install"
                         },
                         {
                             "label": "Structure",
-                            "href": "doc.html#fw-page--struct"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--struct"
                         }
                     ]
                 }
@@ -58,43 +58,43 @@
         },
         {
             "label": "Documentation",
-            "href": "doc.html#fw-page--gulp",
+            "href": "{{ FW.paths.html }}/doc.html#fw-page--gulp",
             "sub": [
                 {
                     "label": "Gulp",
-                    "href": "doc.html#fw-page--gulp",
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--gulp",
                     "sub": [
                         {
                             "label": "Fonctionnement",
-                            "href": "doc.html#fw-page--work"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--work"
                         },
                         {
                             "label": "Lignes de commande",
-                            "href": "doc.html#fw-page--cmd"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--cmd"
                         }
                     ]
                 },
                 {
                     "label": "Nunjucks",
-                    "href": "doc.html#fw-page--njk",
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--njk",
                     "sub": [
                         {
                             "label": "Templates",
-                            "href": "doc.html#fw-page--tpl"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--tpl"
                         },
                         {
                             "label": "Pages",
-                            "href": "doc.html#fw-page--page"
+                            "href": "{{ FW.paths.html }}/doc.html#fw-page--page"
                         }
                     ]
                 },
                 {
                     "label": "UIKit",
-                    "href": "doc.html#fw-page--uikit"
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--uikit"
                 },
                 {
                     "label": "JavaScript",
-                    "href": "doc.html#fw-page--js"
+                    "href": "{{ FW.paths.html }}/doc.html#fw-page--js"
                 }
             ]
         }

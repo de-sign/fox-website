@@ -1,0 +1,34 @@
+{
+    "url": {
+        "path": "/samples/forest.html"
+    },
+    "stylesheet": ["forest.css"],
+
+    "template": {
+        "name": "mosaic",
+        "mode": "uk-dark",
+        "background": {
+            "type": "image",
+            "attributes": {
+                "data-src": "{{ FW.paths.images }}/backgrounds/wood-light.jpg",
+                "class": "uk-background-fixed uk-box-shadow-medium"
+            }
+        }
+    },
+
+    "content": {
+        "title": "FOX Website",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.",
+        "footer": [
+            {
+                "type": "uk-button",
+                "tag": "a",
+                "content": "Get started",
+                "attributes": {
+                    "href": "{{ FW.paths.html }}/doc.html",
+                    "class": "uk-button-primary"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+<!-- Extension du Layout --> 
+{% extends '_templates/' + FW.template.name + '.njk' %}
+
+{% block main_content %}
+    <section class="uk-section-large uk-background-muted">
+        <div class="uk-container uk-container-large">
+            <div class="uk-grid-large uk-child-width-1-2 uk-flex-middle" uk-grid>
+                <div class="uk-text-center uk-text-emphasis">
+                    <img class="uk-visible@s" data-src="{{ FW.paths.images }}/icons/foxwebsite.svg" width="300" height="300" alt="logo" uk-svg>
+                    <img class="uk-hidden@s" data-src="{{ FW.paths.images }}/icons/foxwebsite.svg" width="200" height="200" alt="logo" uk-svg>
+                </div>
+                <div>
+                    <h3 class="uk-margin-remove">Simple Node.js project for develop<br/>your static website</h3>
+                    <p class="uk-margin-medium">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
