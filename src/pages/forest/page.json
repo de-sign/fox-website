@@ -2,33 +2,125 @@
     "url": {
         "path": "/samples/forest.html"
     },
+	"meta": {
+        "title": "FOX Website - Forest template"
+    },
     "stylesheet": ["forest.css"],
 
     "template": {
         "name": "mosaic",
-        "mode": "uk-dark",
+        "mode": "uk-light",
         "background": {
-            "type": "image",
-            "attributes": {
-                "data-src": "{{ FW.paths.images }}/backgrounds/wood-light.jpg",
-                "class": "uk-background-fixed uk-box-shadow-medium"
+            "intro": {
+                "type": "image",
+                "attributes": {
+                    "data-src": "{{ FW.paths.images }}/backgrounds/wood-light.jpg",
+                    "class": "uk-background-fixed uk-box-shadow-medium"
+                }
+            },
+            "separator": {
+                "type": "image",
+                "attributes": {
+                    "data-src": "{{ FW.paths.images }}/backgrounds/wood-light.jpg",
+                    "class": "uk-background-fixed"
+                }
+            },
+            "footer": {
+                "type": "image",
+                "attributes": {
+                    "data-src": "{{ FW.paths.images }}/backgrounds/wood-light.jpg",
+                    "class": "uk-background-fixed uk-background-blend-luminosity uk-background-default"
+                }
             }
         }
     },
 
     "content": {
-        "title": "FOX Website",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.",
-        "footer": [
-            {
-                "type": "uk-button",
-                "tag": "a",
-                "content": "Get started",
-                "attributes": {
-                    "href": "{{ FW.paths.html }}/doc.html",
-                    "class": "uk-button-primary"
+
+        "intro": {
+            "title": "FOX Website",
+            "description": "<b>FOX Website est un framework simple d'utilisation vous permettant de créer des sites WEB statiques rapidement.</b><br/><br/>Ce dernier utilise <b>NodeJS</b> et est couplé avec l'utilisation de <b>GULP</b> pour la gestion de tâches automatisées, <b>Nunjucks</b> afin de gérer vos pages via des templates et <b>UIKit en SCSS</b> pour la partie front-end.",
+            "footer": [
+                {
+                    "type": "uk-button",
+                    "tag": "a",
+                    "content": "Get started",
+                    "attributes": {
+                        "href": "{{ FW.paths.html }}/doc.html",
+                        "class": "uk-button-primary"
+                    }
                 }
+            ]
+        },
+
+        "separator": {
+            "type": "fw-element",
+            "attributes": {
+                "class": "uk-height-small"
             }
-        ]
-    }
+        },
+        
+        "footer": {
+            "title": "FOX Website",
+            "icon": {
+                "type": "uk-svg",
+                "attributes": {
+                    "data-src": "{{ FW.paths.images }}/icons/foxwebsite.svg",
+                    "width": 75,
+                    "height": 75,
+                    "alt": "Fox Website logo",
+                    "class": "uk-text-emphasis uk-margin-medium-left uk-margin-medium-right"
+                }
+            },
+            "buttons": [
+                {
+                    "type": "uk-icon",
+                    "tag": "a",
+                    "attributes": {
+                        "uk-icon": "ratio: 2; icon: world;",
+                        "href": "https://de-sign.github.io",
+                        "target": "_blank",
+                        "rel": "noreferrer noopener",
+                        "class": "uk-margin-left uk-margin-right"
+                    }
+                },
+                {
+                    "type": "uk-icon",
+                    "tag": "a",
+                    "attributes": {
+                        "uk-icon": "ratio: 2; icon: github-alt;",
+                        "href": "https://github.com/de-sign/fox-website",
+                        "target": "_blank",
+                        "rel": "noreferrer noopener",
+                        "class": "uk-margin-left uk-margin-right"
+                    }
+                },
+                {
+                    "type": "uk-icon",
+                    "tag": "a",
+                    "attributes": {
+                        "uk-icon": "ratio: 2; icon: instagram;",
+                        "href": "https://www.instagram.com/__de_sign",
+                        "target": "_blank",
+                        "rel": "noreferrer noopener",
+                        "class": "uk-margin-left uk-margin-right"
+                    }
+                }
+            ]
+        }
+    },
+
+    "credits": [
+        "2019 Jérémy OUDOT",
+        {
+            "type": "uk-link",
+            "tag": "a",
+            "content": "http://unlicense.org",
+            "attributes": {
+                "href": "http://unlicense.org",
+                "target": "_blank",
+                "rel": "noreferrer noopener"
+            }
+        }
+    ]
 }

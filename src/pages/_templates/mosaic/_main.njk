@@ -2,60 +2,62 @@
     <main class="fw-main" >
 
         {% block main_intro %}
-            <section class="uk-section uk-padding-remove">
+            <section class="uk-section uk-padding-remove uk-overflow-hidden">
     
                 <div class="uk-grid-collapse uk-height-viewport uk-flex-middle" uk-grid>
-                    <div class="uk-width-1-3">
+                    <div class="uk-width-1-1 uk-width-1-3@l">
 
                         {% block main_left %}
-                            <section class="uk-padding uk-text-right">
+                            <section class="uk-padding uk-text-center uk-text-right@l">
+                                <div class="uk-section-large">
 
-                                {% block main_header %}
-                                    <header uk-scrollspy="cls: uk-animation-slide-bottom-medium" class="uk-margin-medium">
+                                    {% block main_header %}
+                                        <header uk-scrollspy="cls: uk-animation-slide-bottom-medium" class="uk-margin-medium">
 
-                                        {% block main_icon %}
-                                            {% if FW.content.icon %}
-                                                <div class="uk-margin-small">
-                                                    {{ FW.macro.component(FW.content.icon) }}
-                                                </div>
-                                            {% endif %}
-                                        {% endblock %}
+                                            {% block main_icon %}
+                                                {% if FW.content.intro.icon %}
+                                                    <div class="uk-margin-small">
+                                                        {{ FW.macro.component(FW.content.intro.icon) }}
+                                                    </div>
+                                                {% endif %}
+                                            {% endblock %}
 
-                                        {% block main_title %}
-                                            <h1 class="uk-heading-medium uk-margin-medium">{{ FW.content.title | safe }}</h1>
-                                        {% endblock %}
+                                            {% block main_title %}
+                                                <h1 class="uk-heading-medium uk-margin-medium">{{ FW.content.intro.title | safe }}</h1>
+                                            {% endblock %}
 
-                                        {% block main_subtitle %}
-                                            {% if FW.content.subtitle %}
-                                                <h2 class="uk-h4">{{ FW.content.subtitle | safe }}</h2>
-                                            {% endif %}
-                                        {% endblock %}
+                                            {% block main_subtitle %}
+                                                {% if FW.content.intro.subtitle %}
+                                                    <h2 class="uk-h4">{{ FW.content.intro.subtitle | safe }}</h2>
+                                                {% endif %}
+                                            {% endblock %}
 
-                                    </header>
-                                {% endblock %}
+                                        </header>
+                                    {% endblock %}
 
-                                {% block main_text %}
-                                    {% if FW.content.description %}
-                                        <div uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 250" class="uk-margin-medium">
-                                            <p>{{ FW.content.description | safe }}</p>
-                                        </div>
-                                    {% endif %}
-                                {% endblock %}
+                                    {% block main_text %}
+                                        {% if FW.content.intro.description %}
+                                            <div uk-scrollspy="cls: uk-animation-slide-bottom-small; delay: 250" class="uk-margin-medium">
+                                                <p>{{ FW.content.intro.description | safe }}</p>
+                                            </div>
+                                        {% endif %}
+                                    {% endblock %}
 
-                                {% block main_buttons %}
-                                    {% if FW.content.footer %}
-                                        <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium-top">
-                                            {{ FW.macro.component(FW.content.footer) }}
-                                        </footer>
-                                    {% endif %}
-                                {% endblock %}
-
+                                    {% block main_buttons %}
+                                        {% if FW.content.intro.footer %}
+                                            <footer uk-scrollspy="cls: uk-animation-fade; delay: 500" class="uk-margin-medium-top">
+                                                {{ FW.macro.component(FW.content.intro.footer) }}
+                                            </footer>
+                                        {% endif %}
+                                    {% endblock %}
+                                    
+                                </div>
                             </section>
                         {% endblock %}
 
                     </div>
 
-                    <div class="uk-width-2-3">
+                    <div class="uk-width-1-1 uk-width-2-3@l">
                         {% block main_right %}
                             //=include _mosaic.njk
                         {% endblock %}
@@ -65,6 +67,8 @@
             </section>
         {% endblock %}
 
-        {% block main_content %}{% endblock %}
+        {% block main_content %}
+            //=include _separator.njk
+        {% endblock %}
     </main>
 {% endblock %}

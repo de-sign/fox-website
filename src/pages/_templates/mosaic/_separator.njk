@@ -1,0 +1,24 @@
+{% block separator %}
+    <section
+        {% if FW.template.background.separator.type == "image" %}
+            {{ FW.macro.printAttributes( FW.template.background.separator.attributes | fw_assign({
+                'uk-img': '',
+                'class': FW.template.background.separator.attributes.class + ' fw-separator uk-section-large uk-cover-container ' + FW.template.mode 
+            }) ) }}
+        {% else %}
+            class="{{ FW.template.background.separator.class }} fw-separator uk-section-large uk-cover-container {{ FW.template.mode }}"
+        {% endif %}
+    >
+        {% if FW.template.background.separator.type == "video" %}
+            {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(FW.template.background.footer)) }}
+        {% endif %}
+        
+        <div class="uk-container uk-flex uk-flex-middle uk-flex-center" >
+            {% block separator_content %}
+                {% if FW.content.separator %}
+                    {{ FW.macro.component(FW.content.separator) }}
+                {% endif %}
+            {% endblock %}
+        </div>
+    </section>
+{% endblock %}

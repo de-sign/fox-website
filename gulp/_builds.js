@@ -1,6 +1,6 @@
 // Require
 const gulp          = require('gulp');
-const merge         = require('lodash.merge');
+const mergeWith     = require('lodash.mergewith');
 const del           = require('del');
 const plumber       = require('gulp-plumber');
 const include       = require('gulp-include');
@@ -71,9 +71,14 @@ module.exports = function(config){
         html: (() => {
             let FW = null;
             function _getData(file){
-                FW = merge(
+                FW = mergeWith(
                     JSON.parse(fs.readFileSync(config.paths.src.data + '/website.json')),
-                    JSON.parse(fs.readFileSync(path.dirname(file.path) + '/page.json'))
+                    JSON.parse(fs.readFileSync(path.dirname(file.path) + '/page.json')),
+                    (objValue, srcValue) => {
+                        if(Array.isArray(objValue)){
+                            return srcValue;
+                        }
+                    }
                 );
                 FW.url = url.parse(FW.url.origin + FW.url.path);
                 

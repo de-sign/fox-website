@@ -1,9 +1,44 @@
 {% block footer %}
     {% if FW.credits %}
-        <footer class="fw-footer uk-section uk-section-small">
+        <footer
+            {% if FW.template.background.footer.type == "image" %}
+                {{ FW.macro.printAttributes( FW.template.background.footer.attributes | fw_assign({
+                    'uk-img': '',
+                    'class': FW.template.background.footer.attributes.class + ' fw-footer uk-section uk-cover-container uk-overflow-auto ' + FW.template.mode 
+                }) ) }}
+            {% else %}
+                class="{{ FW.template.background.footer.class }} fw-footer uk-section uk-cover-container uk-overflow-auto {{ FW.template.mode }}"
+            {% endif %}
+        >
+            {% if FW.template.background.footer.type == "video" %}
+                {{ FW.macro.HTMLElement({ attributes: { 'uk-cover': ''} } | fw_assign(FW.template.background.footer)) }}
+            {% endif %}
+
             <div class="uk-container uk-text-center">
-                <div class="uk-grid-small uk-child-width-1-1 uk-child-width-auto@s uk-flex-center" uk-grid>
-                    {{ FW.macro.wrapper(FW.credits) }}
+                <div class="uk-grid-large uk-child-width-1-1 uk-child-width-auto@s uk-flex-center uk-flex-bottom" uk-grid>
+
+                    <div>
+                        {% block footer_icon %}
+                            {% if FW.content.footer.icon %}
+                                {{ FW.macro.component(FW.content.footer.icon) }}
+                            {% endif %}
+                        {% endblock %}
+
+                        {% block footer_title %}
+                            <h1 class="uk-h4 uk-margin-small">{{ FW.content.footer.title | safe }}</h1>
+                        {% endblock %}
+                    </div>
+
+                    <div>
+                        {% if FW.content.footer.buttons %}
+                            <div class="uk-margin-medium">
+                                {{ FW.macro.component(FW.content.footer.buttons) }}
+                            </div>
+                        {% endif %}
+                        <div class="uk-grid-small uk-child-width-1-1 uk-child-width-auto@s uk-flex-center uk-flex-middle" uk-grid>
+                            {{ FW.macro.wrapper(FW.credits) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

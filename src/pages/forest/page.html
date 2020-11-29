@@ -2,20 +2,46 @@
 {% extends '_templates/' + FW.template.name + '.njk' %}
 
 {% block main_content %}
-    <section class="uk-section-large uk-background-muted">
-        <div class="uk-container uk-container-large">
-            <div class="uk-grid-large uk-child-width-1-2 uk-flex-middle" uk-grid>
-                <div class="uk-text-center uk-text-emphasis">
-                    <img class="uk-visible@s" data-src="{{ FW.paths.images }}/icons/foxwebsite.svg" width="300" height="300" alt="logo" uk-svg>
-                    <img class="uk-hidden@s" data-src="{{ FW.paths.images }}/icons/foxwebsite.svg" width="200" height="200" alt="logo" uk-svg>
-                </div>
-                <div>
-                    <h3 class="uk-margin-remove">Simple Node.js project for develop<br/>your static website</h3>
+    {{ super() }}
+    <section class="uk-section-large">
+        <div class="uk-container">
+            <div class="uk-flex-middle uk-grid-large" uk-grid>
+
+                <div class="uk-width-1-1 uk-width-1-2@m">
+                    <h2 class="uk-margin-remove">Simple Node.js project for develop your static website</h2>
                     <p class="uk-margin-medium">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur rerum ratione mollitia repellendus perferendis asperiores voluptas cupiditate provident maxime est sit dolores optio voluptatibus error, nisi nesciunt tenetur atque reiciendis.
+                        <b>FOX Website</b> utilise <b>Gulp</b> afin d'automatiser les tâches de génération de votre site statique final.<br/>
+                        Afin de facilité le développement, ce dernier avec couplé avec le module <mark>browser-sync</mark> vous permettant de visualiser en temps réel vos modifications.
+                    </p>
+                    <p class="uk-margin-medium">
+                        L'outils de templating <b>Nunjucks</b> est utilisé afin de générer vos pages statiques.<br/>
+                        <b>UIKit</b> permet de définir un thème simple et efficace pour votre site.<br/>
+                        Vos scripts intéractifs sont à créer avec <b>Javascript Vanilla</b>.
                     </p>
                 </div>
+                
+                <div class="uk-width-1-1 uk-width-1-2@m uk-flex-first@m">
+                    <div class="uk-flex-middle uk-flex-center" uk-grid>
+                        <div>
+                            <img class="uk-width-medium" data-src="{{ FW.paths.images }}/icons/nodejs.svg" uk-img>
+                        </div>
+                        <div>
+                            <img class="uk-width-small" data-src="{{ FW.paths.images }}/icons/js.png" uk-img>
+                        </div>
+                    </div>
+                    <div class="uk-flex-middle uk-flex-center" uk-grid>
+                        <div>
+                            <img class="uk-width-medium" data-src="{{ FW.paths.images }}/icons/nunjucks.png" uk-img>
+                        </div>
+                        <div>
+                            <img data-src="{{ FW.paths.images }}/icons/gulp.png" width="60" uk-img>
+                        </div>
+                        <div>
+                            <div style="color: #1e87f0;" uk-icon="icon: uikit; ratio: 4"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
